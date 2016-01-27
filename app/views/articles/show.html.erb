@@ -8,6 +8,20 @@
     <%= @article.text %>
 </p>
 
+<h2>Comments: </h2>
+<table>
+    <tr>
+        <th>Commenter</th>
+        <th>Body</th>
+    </tr>
+    <% @article.comments.each do |comment| %>
+        <tr>
+            <td><%= comment.commenter %></td>
+            <td><%= comment.body %></td>
+        </tr>
+    <% end %>
+</table>
+
 <h2>Add a comment: </h2>
 <%= form_for([@article, @article.comments.build]) do |f| %>
     <p>
